@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../flashcards/english_flashcard.dart'; // Import the flashcard data
+import 'package:reddays/flashcards/english_flash_data.dart';
 
 class EnglishPage extends StatefulWidget {
   @override
@@ -13,7 +12,7 @@ class _EnglishPageState extends State<EnglishPage>
 
   void _showNextCard() {
     setState(() {
-      if (_currentIndex < simplifiedFlashcards.length - 1) {
+      if (_currentIndex < englishFlashcardData.length - 1) {
         _currentIndex++;
       }
     });
@@ -61,8 +60,8 @@ class _EnglishPageState extends State<EnglishPage>
 
             // Flashcard
             Flashcard(
-              question: simplifiedFlashcards[_currentIndex]['question']!,
-              answer: simplifiedFlashcards[_currentIndex]['answer']!,
+              question: englishFlashcardData[_currentIndex]['question']!,
+              answer: englishFlashcardData[_currentIndex]['answer']!,
             ),
             SizedBox(height: 20),
 
@@ -85,7 +84,7 @@ class _EnglishPageState extends State<EnglishPage>
                 ),
                 SizedBox(width: 20),
                 ElevatedButton(
-                  onPressed: _currentIndex < simplifiedFlashcards.length - 1
+                  onPressed: _currentIndex < englishFlashcardData.length - 1
                       ? _showNextCard
                       : null,
                   style: ElevatedButton.styleFrom(
